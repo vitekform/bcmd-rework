@@ -1,2 +1,5 @@
-# bcmd-rework
-Source Code of Better Command Reworked
+# Better Commands Reborn
+This is BCMD's source code repository.
+I will post the source code here and you can also report issues in "issues" tab.
+
+Wiki can be found on : https://docs.vmnetwork.space
