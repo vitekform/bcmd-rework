@@ -1,0 +1,5 @@
+#Better Commands Configuration
+lang: "en_us"
+#Supported languages are cs_cz and en_us
+admin_prefix: "BCMD" #What prefix should BCMD have when logging to console
+spectator_radius: 25 #Radius between spectator and spectated where spectator can move (in blocks)
