@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/versions/1.5/BCMD-Reborn (1).iml" filepath="$PROJECT_DIR$/versions/1.5/BCMD-Reborn (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bcmd-rework.iml" filepath="$PROJECT_DIR$/.idea/bcmd-rework.iml" />
+    </modules>
+  </component>
+</project>

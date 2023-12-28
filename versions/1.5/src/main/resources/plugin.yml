@@ -1,8 +1,13 @@
 name: BCMD
-version: '1.4'
+version: '1.5'
 main: cz.vitekform.bcmdreborn.BCMD
 api-version: '1.20'
 commands:
+  help:
+    description: "AKA support"
+    aliases:
+      - bcmdhelp
+      - bcmdsupport
   timedstop:
     description: "Timed server stop"
     aliases:
@@ -19,7 +24,7 @@ commands:
     description: "Feeds a player"
   heal:
     description: "Heals a player"
-  fly:
+  permafly:
     description: "Fly like a bird"
   gma:
     description: "Adventure awaits you!"

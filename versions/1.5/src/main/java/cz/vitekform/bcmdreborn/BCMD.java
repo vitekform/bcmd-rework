@@ -42,13 +42,14 @@ public final class BCMD extends JavaPlugin {
         getCommand("whois").setExecutor(new whois());
         getCommand("feed").setExecutor(new feed());
         getCommand("heal").setExecutor(new heal());
-        getCommand("fly").setExecutor(new fly());
+        getCommand("permafly").setExecutor(new fly());
         getCommand("gms").setExecutor(new gms());
         getCommand("gmc").setExecutor(new gmc());
         getCommand("gmsp").setExecutor(new gmsp());
         getCommand("gma").setExecutor(new gma());
         getCommand("spectate").setExecutor(new spectate());
         getCommand("tempfly").setExecutor(new timedFly());
+        getCommand("help").setExecutor(new help());
         getServer().getPluginManager().registerEvents(new spectatedMoveHandler(), this);
         super.onEnable();
     }
