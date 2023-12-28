@@ -1,0 +1,38 @@
+name: BCMD
+version: '1.4'
+main: cz.vitekform.bcmdreborn.BCMD
+api-version: '1.20'
+commands:
+  timedstop:
+    description: "Timed server stop"
+    aliases:
+      - stop
+      - betterstop
+  diceroll:
+    description: "Rolls a dice"
+    aliases:
+      - dice
+      - roll
+  whois:
+    description: "Who is?"
+  feed:
+    description: "Feeds a player"
+  heal:
+    description: "Heals a player"
+  fly:
+    description: "Fly like a bird"
+  gma:
+    description: "Adventure awaits you!"
+  gms:
+    description: "Minecraft is great survival game!"
+  gmc:
+    description: "Build whatever you want!"
+  gmsp:
+    description: "Like a ghost"
+  spectate:
+    description: "I see you"
+  tempfly:
+    description: "Temporary flight"
+    aliases:
+      - tfly
+      - temporaryfly
