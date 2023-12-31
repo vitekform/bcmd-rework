@@ -1,0 +1,7 @@
+orbs:
+  maven: circleci/maven@1.4.1
+workflows:
+    example-workflow:
+      jobs:
+        - maven/parallel_test:
+            command: package 
