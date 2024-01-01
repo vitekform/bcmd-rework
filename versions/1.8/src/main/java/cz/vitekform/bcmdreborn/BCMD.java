@@ -3,47 +3,14 @@ package cz.vitekform.bcmdreborn;
 import cz.vitekform.bcmdreborn.cmds.*;
 import cz.vitekform.bcmdreborn.functions.datafunctions;
 import cz.vitekform.bcmdreborn.functions.configfunctions;
-import cz.vitekform.bcmdreborn.handlers.NightSkipper;
 import cz.vitekform.bcmdreborn.handlers.spectatedMoveHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
 
-
 public final class BCMD extends JavaPlugin {
-
-
-    public void addPlayerToSleeping(){
-        datafunctions.reload();
-        FileConfiguration data = datafunctions.get();
-        if(!data.contains("sleeping")){
-            data.set("sleeping", 0);
-            datafunctions.save();
-        }
-        datafunctions.reload();
-        int PlayersSleeping = data.getInt("sleeping");
-        data.set("sleeping", PlayersSleeping + 1);
-        datafunctions.save();
-    }
-    public void removePlayerFromSleeping(){
-        datafunctions.reload();
-        FileConfiguration data = datafunctions.get();
-        if(!data.contains("sleeping")){
-            data.set("sleeping", 0);
-            datafunctions.save();
-        }
-        datafunctions.reload();
-        int PlayersSleeping = data.getInt("sleeping");
-        data.set("sleeping", PlayersSleeping - 1);
-        datafunctions.save();
-    }
-    public int playerThatAreSleeping(){
-        datafunctions.reload();
-        return datafunctions.get().getInt("sleeping");
-    }
 
     @Override
     public void onEnable() {
@@ -84,7 +51,6 @@ public final class BCMD extends JavaPlugin {
         getCommand("tempfly").setExecutor(new timedFly());
         getCommand("help").setExecutor(new help());
         getServer().getPluginManager().registerEvents(new spectatedMoveHandler(), this);
-        getServer().getPluginManager().registerEvents(new NightSkipper(), this);
         super.onEnable();
         getLogger().log(Level.INFO, ChatColor.GREEN + "[BCMD] Plugin was loaded!");
     }

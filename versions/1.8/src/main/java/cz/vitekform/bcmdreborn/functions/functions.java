@@ -31,15 +31,7 @@ public class functions {
     }
 
     public static boolean isGod(Player p){
-        double befHP = p.getHealth();
-        p.damage(0.1);
-        double nowHP = p.getHealth();
-        if (befHP - nowHP == 0D){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return p.hasMetadata("godmode");
     }
 
     public static boolean isPluginPresent(String plugin_name){
@@ -51,16 +43,5 @@ public class functions {
             ispresent = false;
         }
         return ispresent;
-    }
-
-    public static int getNumsInString(String s){
-        String[] chars = s.split("(?!^)");
-        String finString = "";
-        for (int i = 0; i != chars.length; i++){
-            if (isInteger(chars[i])){
-                finString = finString + chars[i];
-            }
-        }
-        return Integer.parseInt(finString);
     }
 }
