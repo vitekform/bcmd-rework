@@ -1,7 +1,0 @@
-#Better Commands Configuration
-lang: "en_us"
-#Supported languages are cs_cz and en_us
-spectator_radius: 25 #Radius between spectator and spectated where spectator can move (in blocks)
-skipNightEnabled: false #Is function like from Morfeus
-skipNightType: REQ_PERCENT #What type of skip night are we using (REQ_PLAYER_COUNT is set int value of players that must sleep and REQ_PERCENT is percent of online players that must be sleeping)
-skipNightInt: 25
