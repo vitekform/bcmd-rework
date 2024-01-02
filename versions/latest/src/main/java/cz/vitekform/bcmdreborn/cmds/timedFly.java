@@ -31,6 +31,7 @@ public class timedFly implements CommandExecutor {
                     if (p.isFlying()){
                         p.sendMessage(ChatColor.RED + "Vypnul jsi si tempfly!");
                         p.setFlying(false);
+                        p.setAllowFlight(false);
                         data.set(p.getName() + ".isFlying", false);
                     }
                     if (data.contains(p.getName() + ".flyTime")){
@@ -77,6 +78,7 @@ public class timedFly implements CommandExecutor {
                                         p.playSound(p, Sound.BLOCK_NOTE_BLOCK_PLING, 100, 100);
                                     }
                                     nowData.set(p.getName() + ".flyTime", remTime - 1);
+                                    datafunctions.save();
                                 }
                             }.runTaskTimerAsynchronously(plugin, 0, 20);
                             return false;
