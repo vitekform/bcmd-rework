@@ -14,8 +14,11 @@ public class datafunctions {
 
 
     public static void setup(){
-        f = new File(Bukkit.getServer().getPluginManager().getPlugin("BCMD").getDataFolder(), "data.yml");
-
+        String dir = System.getProperty("user.dir");
+        f = new File(dir + "/plugins/BCMD/data.yml");
+        if (new File(dir + "/plugins/BCMD").isDirectory()){
+            new File(dir + "/plugins/BCMD").mkdirs();
+        }
         if (!f.exists()){
             try {
                 f.createNewFile();

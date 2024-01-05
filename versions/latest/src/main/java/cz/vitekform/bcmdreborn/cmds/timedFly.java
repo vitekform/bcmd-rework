@@ -54,7 +54,6 @@ public class timedFly implements CommandExecutor {
                                 public void run() {
                                     if (p.hasMetadata("tempflying")){
                                         List<MetadataValue> values = p.getMetadata("tempflying");
-                                        System.out.println("Lenght is : " + values.size());
                                     }
                                     else {
                                         p.setMetadata("tempflying", new FixedMetadataValue(plugin, 0));

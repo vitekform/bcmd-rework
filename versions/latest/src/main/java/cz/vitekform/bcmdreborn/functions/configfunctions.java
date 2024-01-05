@@ -14,8 +14,11 @@ public class configfunctions {
 
 
     public static void setup(){
-        f = new File(Bukkit.getServer().getPluginManager().getPlugin("BCMD").getDataFolder(), "config.yml");
-
+        String dir = System.getProperty("user.dir");
+        f = new File(dir + "/plugins/BCMD/confi.yml");
+        if (new File(dir + "/plugins/BCMD").isDirectory()){
+            new File(dir + "/plugins/BCMD").mkdirs();
+        }
         if (!f.exists()){
             try {
                 f.createNewFile();
