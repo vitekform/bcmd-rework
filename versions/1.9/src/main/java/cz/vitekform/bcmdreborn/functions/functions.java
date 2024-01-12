@@ -3,10 +3,6 @@ package cz.vitekform.bcmdreborn.functions;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 
 public class functions {
 
@@ -66,35 +62,5 @@ public class functions {
             }
         }
         return Integer.parseInt(finString);
-    }
-
-    public static String getValueFromFile(File f, String query){
-        Scanner scn;
-        try {
-            scn = new Scanner(f);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        while (scn.hasNextLine()){
-            String line = scn.nextLine();
-            if (line.contains(query)){
-                return line.replace(query + ": ", "");
-            }
-        }
-        return null;
-    }
-
-    public static String getAllLinesFromFile(File f){
-        String lines = "";
-        Scanner scn;
-        try {
-            scn = new Scanner(f);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        while (scn.hasNextLine()){
-            lines = lines + "\n" + scn.nextLine();
-        }
-        return lines;
     }
 }

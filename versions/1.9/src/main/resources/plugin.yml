@@ -41,5 +41,3 @@ commands:
     aliases:
       - tfly
       - temporaryfly
-  bcmd:
-    description: "Core admin command"

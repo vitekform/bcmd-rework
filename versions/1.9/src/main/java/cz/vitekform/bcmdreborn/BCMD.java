@@ -1,7 +1,8 @@
 package cz.vitekform.bcmdreborn;
 
 import cz.vitekform.bcmdreborn.cmds.*;
-import cz.vitekform.bcmdreborn.functions.*;
+import cz.vitekform.bcmdreborn.functions.datafunctions;
+import cz.vitekform.bcmdreborn.functions.configfunctions;
 import cz.vitekform.bcmdreborn.handlers.NightSkipper;
 import cz.vitekform.bcmdreborn.handlers.spectatedMoveHandler;
 import org.bukkit.Bukkit;
@@ -9,7 +10,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
 import java.util.logging.Level;
 
 
@@ -83,17 +83,10 @@ public final class BCMD extends JavaPlugin {
         getCommand("spectate").setExecutor(new spectate());
         getCommand("tempfly").setExecutor(new timedFly());
         getCommand("help").setExecutor(new help());
-        getCommand("bcmd").setExecutor(new bcmd());
         getServer().getPluginManager().registerEvents(new spectatedMoveHandler(), this);
         getServer().getPluginManager().registerEvents(new NightSkipper(), this);
         super.onEnable();
         getLogger().log(Level.INFO, ChatColor.GREEN + "[BCMD] Plugin was loaded!");
-        versionChecker versionChecker = new versionChecker();
-        try {
-            versionChecker.check();
-        }   catch (IOException e){
-            throw new RuntimeException(e);
-        }
     }
 
     @Override

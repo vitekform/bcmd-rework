@@ -15,7 +15,7 @@ public class configfunctions {
 
     public static void setup(){
         String dir = System.getProperty("user.dir");
-        f = new File(dir + "/plugins/BCMD/config.yml");
+        f = new File(dir + "/plugins/BCMD/confi.yml");
         if (new File(dir + "/plugins/BCMD").isDirectory()){
             new File(dir + "/plugins/BCMD").mkdirs();
         }
