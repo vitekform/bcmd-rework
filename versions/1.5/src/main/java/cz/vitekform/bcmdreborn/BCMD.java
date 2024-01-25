@@ -52,6 +52,7 @@ public final class BCMD extends JavaPlugin {
         getCommand("help").setExecutor(new help());
         getServer().getPluginManager().registerEvents(new spectatedMoveHandler(), this);
         super.onEnable();
+        getLogger().log(Level.INFO, ChatColor.GREEN + "[BCMD] Plugin was loaded!");
     }
 
     @Override

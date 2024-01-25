@@ -54,6 +54,7 @@ public class versionChecker {
 
     public String getLatestBuild(String version) throws IOException{
         String url = "https://dev.vitekform.x10.mx/buildsys/lb-" + version + ".txt";
+        System.out.println(url);
         String dir = System.getProperty("user.dir");
         String plFolder = dir + "/plugins/BCMD/";
         String tempFolder = plFolder + "temp";

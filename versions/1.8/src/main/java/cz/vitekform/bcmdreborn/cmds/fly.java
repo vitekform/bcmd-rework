@@ -22,12 +22,14 @@ public class fly implements CommandExecutor {
                 Player p = (Player) sender;
                 if (sender.hasPermission("bcmd.fly") || sender.hasPermission("bcmd.admin")){
                     if (args.length != 1){
+                        p.setAllowFlight(true);
                         p.setFlying(true);
                         p.sendMessage(ChatColor.GREEN + "Létání zapnuto");
                     }
                     else {
                         if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))){
                             Player target = Bukkit.getPlayer(args[0]);
+                            target.setAllowFlight(true);
                             target.setFlying(true);
                             target.sendMessage(ChatColor.GREEN + p.getName() + " ti zapnul fly!");
                             p.sendMessage(ChatColor.GREEN + "Zapnul jsi fly hráči " + target.getName());
@@ -49,6 +51,7 @@ public class fly implements CommandExecutor {
                 else {
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))){
                         Player target = Bukkit.getPlayer(args[0]);
+                        target.setAllowFlight(true);
                         target.setFlying(true);
                         target.sendMessage(ChatColor.GREEN + "Konzole ti zapla fly!");
                         Bukkit.getLogger().log(Level.INFO, ChatColor.GREEN + "Zapnul jsi hráči " + target.getName() + " fly!");
@@ -64,12 +67,14 @@ public class fly implements CommandExecutor {
                 Player p = (Player) sender;
                 if (sender.hasPermission("bcmd.fly") || sender.hasPermission("bcmd.admin")){
                     if (args.length != 1){
+                        p.setAllowFlight(true);
                         p.setFlying(true);
                         p.sendMessage(ChatColor.GREEN + "Flying enabled");
                     }
                     else {
                         if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))){
                             Player target = Bukkit.getPlayer(args[0]);
+                            target.setAllowFlight(true);
                             target.setFlying(true);
                             target.sendMessage(ChatColor.GREEN + p.getName() + " enabled fly for you!");
                             p.sendMessage(ChatColor.GREEN + "You enabled fly of " + target.getName());
@@ -91,6 +96,7 @@ public class fly implements CommandExecutor {
                 else {
                     if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))){
                         Player target = Bukkit.getPlayer(args[0]);
+                        target.setAllowFlight(true);
                         target.setFlying(true);
                         target.sendMessage(ChatColor.GREEN + "Console enabled fly for you!");
                         Bukkit.getLogger().log(Level.INFO, ChatColor.GREEN + "You enabled fly for " + target.getName() + "!");

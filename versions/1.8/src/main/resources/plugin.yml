@@ -1,5 +1,5 @@
 name: BCMD
-version: '1.5'
+version: '1.8'
 main: cz.vitekform.bcmdreborn.BCMD
 api-version: '1.20'
 commands:

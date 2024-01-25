@@ -11,9 +11,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.logging.Level;
 
 public class timedFly implements CommandExecutor {
@@ -31,6 +34,7 @@ public class timedFly implements CommandExecutor {
                     if (p.isFlying()){
                         p.sendMessage(ChatColor.RED + "Vypnul jsi si tempfly!");
                         p.setFlying(false);
+                        p.setAllowFlight(false);
                         data.set(p.getName() + ".isFlying", false);
                     }
                     if (data.contains(p.getName() + ".flyTime")){
@@ -48,35 +52,12 @@ public class timedFly implements CommandExecutor {
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
-                                    datafunctions.reload();
-                                    FileConfiguration nowData = datafunctions.get();
-                                    if (nowData.getBoolean(p.getName() + ".isFlying")){
-                                        return;
+                                    if (p.hasMetadata("tempflying")){
+                                        List<MetadataValue> values = p.getMetadata("tempflying");
                                     }
-                                    int remTime = nowData.getInt(p.getName() + ".flyTime");
-                                    if (remTime == 0){
-                                        p.sendMessage(ChatColor.RED + "Došel ti fly!");
-                                        p.setFlying(false);
-                                        p.setAllowFlight(false);
-                                        return;
+                                    else {
+                                        p.setMetadata("tempflying", new FixedMetadataValue(plugin, 0));
                                     }
-                                    else if (remTime == 5){
-                                        p.sendMessage(ChatColor.YELLOW + "Zbývá ti 5 sekund!");
-                                        p.playSound(p, Sound.BLOCK_NOTE_BLOCK_PLING, 100, 100);
-                                    }
-                                    else if (remTime == 15){
-                                        p.sendMessage(ChatColor.YELLOW + "Zbývá ti 15 sekund!");
-                                        p.playSound(p, Sound.BLOCK_NOTE_BLOCK_PLING, 100, 100);
-                                    }
-                                    else if (remTime == 30){
-                                        p.sendMessage(ChatColor.YELLOW + "Zbývá ti 30 sekund!");
-                                        p.playSound(p, Sound.BLOCK_NOTE_BLOCK_PLING, 100, 100);
-                                    }
-                                    else if (remTime == 60){
-                                        p.sendMessage(ChatColor.YELLOW + "Zbývá ti 1 minuta!");
-                                        p.playSound(p, Sound.BLOCK_NOTE_BLOCK_PLING, 100, 100);
-                                    }
-                                    nowData.set(p.getName() + ".flyTime", remTime - 1);
                                 }
                             }.runTaskTimerAsynchronously(plugin, 0, 20);
                             return false;
