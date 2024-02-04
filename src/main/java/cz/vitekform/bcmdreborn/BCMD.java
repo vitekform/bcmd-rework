@@ -88,12 +88,6 @@ public final class BCMD extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new NightSkipper(), this);
         super.onEnable();
         getLogger().log(Level.INFO, ChatColor.GREEN + "[BCMD] Plugin was loaded!");
-        versionChecker versionChecker = new versionChecker();
-        try {
-            versionChecker.check();
-        }   catch (IOException e){
-            throw new RuntimeException(e);
-        }
     }
 
     @Override
