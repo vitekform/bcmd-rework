@@ -29,26 +29,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - uses: actions/upload-artifact@v4
-        with:
-    # Name of the artifact to upload.
-    # Optional. Default is 'artifact'
-          name: BCMD
-
-    # A file, directory or wildcard pattern that describes what to upload
-    # Required.
-          path: target/*-*.jar
-
-
-    # Duration after which artifact will expire in days. 0 means using default retention.
-    # Minimum 1 day.
-    # Maximum 90 days unless changed from the repository settings page.
-    # Optional. Defaults to repository settings.
-          retention-days: 30
-
-    # If true, an artifact with a matching name will be deleted before a new one is uploaded.
-    # If false, the action will fail if an artifact for the given name already exists.
-    # Does not fail if the artifact does not exist.
-    # Optional. Default is 'false'
-          overwrite: true
-          
+    - name: Add Artifact to commit
+      run: git add target/*-*.jar
+    - name: Create Commit
+      run: git commit -m "Upload of Artifact Build"
+    - name: Push Changes
+      run: git push
