@@ -29,9 +29,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Add Artifact to commit
-      run: git add target/*-*.jar
-    - name: Create Commit
-      run: git commit -m "Upload of Artifact Build"
-    - name: Push Changes
-      run: git push
+    - name: Upload Artifact
+      run: git add target/*-*.jar | git config --global user.email "vit.formanek.2022b@gypce.cz" | git config --global user.name "vitekform" | git commit -m "Upload of artifact" | git push | echo "Push succesfull!"
