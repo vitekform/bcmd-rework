@@ -33,4 +33,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload Artifact
-      run:  rm .git/index.lock | git add target/*-*.jar | git config --global user.email "vit.formanek.2022b@gypce.cz" | git config --global user.name "vitekform" | git commit -m "Upload of artifact" | git push | echo "Push succesfull!"
+      run:  rm /home/runner/work/bcmd-rework/bcmd-rework/.git/index.lock | git add target/*-*.jar | git config --global user.email "vit.formanek.2022b@gypce.cz" | git config --global user.name "vitekform" | git commit -m "Upload of artifact" | git push | echo "Push succesfull!"
